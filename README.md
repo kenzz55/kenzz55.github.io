@@ -100,7 +100,7 @@ html {
 }
 ```
   - for dark mode customize these css variables
-```css
+```scss
 @mixin dark-appearance {
   html, body  {
       --headings: #74c0fc;
