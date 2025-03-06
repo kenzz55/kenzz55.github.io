@@ -1,0 +1,55 @@
+        <?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+    <url>
+        <loc>https://www.kenzz55.github.io/404.html</loc></url>
+    
+    <url>
+        <loc>https://www.kenzz55.github.io/about</loc></url>
+    
+    <url>
+        <loc>https://www.kenzz55.github.io/blog</loc></url>
+    
+    <url>
+        <loc>https://www.kenzz55.github.io/</loc></url>
+    
+    <url>
+        <loc>https://www.kenzz55.github.io/assets/css/main.css</loc></url>
+    
+    <url>
+        <loc>https://www.kenzz55.github.io/sitemap.xml</loc></url>
+    
+    <url>
+        <loc>https://www.kenzz55.github.io/assets/css/main.css.map</loc></url>
+    
+    <url>
+        <loc>https://www.kenzz55.github.io/soopr</loc>
+        <lastmod></lastmod>
+    </url>
+    
+    <url>
+        <loc>https://www.kenzz55.github.io/code</loc>
+        <lastmod></lastmod>
+    </url>
+    
+    <url>
+        <loc>https://www.kenzz55.github.io/post-example-with-headings-and-toc</loc>
+        <lastmod></lastmod>
+    </url>
+    
+    <url>
+        <loc>https://www.kenzz55.github.io/very-very-very-long-title-and-very-very-very-short-content</loc>
+        <lastmod></lastmod>
+    </url>
+    
+    <url>
+        <loc>https://www.kenzz55.github.io/language-tests</loc>
+        <lastmod></lastmod>
+    </url>
+    
+    <url>
+        <loc>https://www.kenzz55.github.io/overview-post</loc>
+        <lastmod></lastmod>
+    </url>
+    
+</urlset>
