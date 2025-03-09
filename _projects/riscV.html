@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" class="html" data-theme="dark"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>
+    
+      RISC-V Programming
+    
+  </title>
+
+  <!-- Begin Jekyll SEO tag v2.7.3 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="RISC-V Programming" />
+<meta name="author" content="H1yooTTaTTa" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="프로젝트 개요" />
+<meta property="og:description" content="프로젝트 개요" />
+<link rel="canonical" href="https://www.kenzz55.github.io/_projects/riscV" />
+<meta property="og:url" content="https://www.kenzz55.github.io/_projects/riscV" />
+<meta property="og:site_name" content="Game / Systems Engineering Development Log" />
+<meta property="og:image" content="https://soopr.xyz/images/card?url=https://www.kenzz55.github.io/_projects/riscV" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-03-09T23:36:07+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:image" content="https://soopr.xyz/images/card?url=https://www.kenzz55.github.io/_projects/riscV" />
+<meta property="twitter:title" content="RISC-V Programming" />
+<script type="application/ld+json">
+{"headline":"RISC-V Programming","dateModified":"2025-03-09T23:36:07+09:00","datePublished":"2025-03-09T23:36:07+09:00","url":"https://www.kenzz55.github.io/_projects/riscV","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.kenzz55.github.io/_projects/riscV"},"author":{"@type":"Person","name":"H1yooTTaTTa"},"@type":"BlogPosting","description":"프로젝트 개요","@context":"https://schema.org"}</script>
+<script async defer data-soopr-token="" src="https://sdk.soopr.co/soopr.js"  ></script>
+<!-- End Jekyll SEO tag -->
+
+  <link type="application/atom+xml" rel="alternate" href="https://www.kenzz55.github.io/feed.xml" title="Game / Systems Engineering Development Log" />
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico">
+
+  <link rel="stylesheet" href="/assets/css/custom.css">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/assets/images/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <!-- Favicon -->
+
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+</head>
+<body>
+    <main class="page-content" aria-label="Content">
+      <div class="w">
+        <a href="/">home..</a>
+<h1 class="post-title">RISC-V Programming</h1>
+<p class="post-date text-bold">
+  
+  
+    <span class="text-upcase">March 2025</span>
+  
+
+
+  
+  
+  (217 Words, 
+  2 Minutes)
+  
+
+</p>
+
+<div class="soopr-btn"
+   data-twitter="SooprCo"
+>
+</div>
+
+
+  <div class="">
+    
+  </div>
+
+
+<h1 id="프로젝트-개요">프로젝트 개요</h1>
+
+<p>이 프로젝트는 RISC-V 기본 명령어(ADD, SUB, ADDI, …) 및 추가 명령어(EXIT)를 해석하여 32비트 기계어로 변환하고, 명령어가 실행되는 동안의 PC(Program Counter) 변화를 추적하는 프로그램을 구현하는 것이 목표입니다.</p>
+
+<p>입력으로 Assembly 코드 파일(<em>.s)을 받아, 이를 해석하여 기계어(</em>.o) 및 트레이스(*.trace) 파일을 생성합니다.</p>
+
+<h2 id="개발-언어-및-환경">개발 언어 및 환경:</h2>
+<ul>
+  <li>C 언어</li>
+  <li>Linux 환경에서 GCC 사용</li>
+</ul>
+
+<h2 id="주요-구현-내용">주요 구현 내용</h2>
+<ul>
+  <li>
+    <p>어셈블리 코드를 읽어 들여 <strong>2단계(2-pass)</strong>로 처리</p>
+
+    <ol>
+      <li>1차 패스: 레이블(Label) 처리 및 명령어 수집</li>
+      <li>2차 패스: 명령어를 32비트 기계어로 인코딩</li>
+    </ol>
+  </li>
+  <li>변환된 기계어를 *.o 파일로 생성</li>
+  <li>실행 시뮬레이션을 통해 프로그램 실행 과정에서 변경되는 PC 값을 *.trace로 기록</li>
+</ul>
+
+<h2 id="주요-제약-사항">주요 제약 사항</h2>
+<ul>
+  <li>지정된 23개의 RISC-V 기본 명령어와 EXIT(0xFFFFFFFF)만 사용</li>
+  <li>x0 ~ x31 레지스터 사용 (x1, x2, x3, … 값 일부 초기화)</li>
+  <li>문법 오류가 있을 경우 에러 메시지를 출력하고 파일을 생성하지 않음</li>
+</ul>
+
+<h1 id="프로그램-구성">프로그램 구성</h1>
+
+<ol>
+  <li>어셈블러(Assembler)
+    <ul>
+      <li>first_pass: 명령어 라인별로 레이블을 수집하고, 명령어 형식을 확인합니다.</li>
+      <li>second_pass: 1차 패스에서 수집된 정보를 활용하여 실제 32비트 기계어로 인코딩합니다. (R, I, S, B, J 등 명령어 유형별 처리)</li>
+      <li>에러 처리: 정의되지 않은 레이블 사용, 지원되지 않는 명령어 사용, 형식 오류 등이 발생하면 “Syntax Error!!” 메시지를 출력합니다</li>
+    </ul>
+  </li>
+  <li>시뮬레이터(Simulator)
+    <ul>
+      <li>변환된 기계어(*.o 파일)를 바탕으로 가상 메모리에 로드한 뒤 명령어를 순차 실행합니다.</li>
+      <li>분기(branch)나 점프(jump) 명령어가 있을 경우, 해당 레이블 주소 혹은 목적지 레지스터를 통해 PC를 갱신합니다.</li>
+      <li>실행 중 변경되는 PC 값을 *.trace 파일에 기록합니다.</li>
+      <li>EXIT 명령어(0xFFFFFFFF)가 나오면 프로그램 실행이 종료됩니다.</li>
+    </ul>
+  </li>
+  <li>자료구조 및 보조 함수
+    <ul>
+      <li>Label 구조체: 레이블의 이름과 해당 명령어가 위치한 주소 저장</li>
+      <li>Instruction 구조체: 특정 주소에 대응하는 기계어 및 관련 정보 저장</li>
+      <li>Register 배열: x0 ~ x31 레지스터의 현재 값 관리</li>
+      <li>주요 보조 함수:
+        <ul>
+          <li>trim_whitespace(), parse_register(), get_label_address(), uint32_to_binary(), …</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="간단한-실행-예시">간단한 실행 예시</h2>
+<p>아래는 예시 파일 <code class="language-plaintext highlighter-rouge">test1.s</code>을 입력받았을 때, 생성되는 출력 파일 예시입니다(*.o, *.trace). 실제 코드 및 테스트 파일은 <a href="https://github.com/kenzz55/RISC_V-Programming">GitHub 링크</a>에서 확인 가능합니다.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;</span> Enter Input File Name: test1.s  
+...
+test1.o
+00000000001000001000001110110011
+01000000010000011000010000110011
+...
+<span class="o">(</span>중략<span class="o">)</span>
+test1.trace
+1000
+1004
+1008
+...
+</code></pre></div></div>
+<ul>
+  <li>*.o 파일에는 변환된 32비트 기계어가 한 줄에 하나씩 기록됩니다.</li>
+  <li>*.trace 파일에는 명령어 실행 시 변화된 PC 값이 순서대로 기록됩니다.</li>
+</ul>
+
+<h2 id="마무리-및-참고">마무리 및 참고</h2>
+
+<p>RISC-V 명령어 구조와 분기/점프 명령어에 따른 PC 변화와 레지스터 값 업데이트 로직을 직접 구현해 보았습니다.</p>
+
+<p>자세한 소스 코드(C 파일)와 테스트 결과(*.s, *.o, *.trace)는 모두 GitHub에 업로드해 두었으니, 구체적인 로직이나 구현 세부 사항이 궁금하신 분들은 참고해 주세요.</p>
+
+<p><a href="https://github.com/kenzz55/RISC_V-Programming">RISC-V 프로그래밍 소스코드 및 테스트 파일</a></p>
+
+
+
+
+
+        
+        <div class="credits">&copy;&nbsp;2025&nbsp;H1yooTTaTTa
+          &nbsp;
+          •
+          &nbsp;Powered by <a href="https://www.soopr.co" target="_blank" rel="noreferrer">Soopr</a>
+          &nbsp;
+          •
+          &nbsp;Theme&nbsp; <a href="https://github.com/abhinavs/moonwalk" target="_blank" rel="noreferrer">Moonwalk</a>
+        </div>
+      </div>
+    </main><script async defer data-soopr-token="" src="https://sdk.soopr.co/soopr.js"></script></body>
+</html>
